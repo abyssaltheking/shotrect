@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4c4afhm45bt7"]
+
+[ext_resource type="Texture2D" uid="uid://da5kwda24il6" path="res://square.png" id="1_80nbo"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.53139967, 0, 1)
+position = Vector2(336.75, 553.042)
+scale = Vector2(41.71875, 11.818336)
+texture = ExtResource("1_80nbo")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(2.5027991e-06, 0, 0.7148237, 1)
+position = Vector2(118.375, 271.49765)
+scale = Vector2(8.015625, 23.312204)
+texture = ExtResource("1_80nbo")
