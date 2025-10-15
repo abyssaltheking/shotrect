@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6jjii2lvabbq"]
+
+[ext_resource type="Texture2D" uid="uid://da5kwda24il6" path="res://art/square.png" id="1_wykyb"]
+[ext_resource type="Script" uid="uid://dnhfei8wc7wxs" path="res://code/RegainJumpArea.cs" id="2_2ktk7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wykyb"]
+friction = 0.2
+rough = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ktk7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e00m8"]
+size = Vector2(20, 2)
+
+[node name="Wall" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_wykyb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2ktk7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.7683716e-07, -4.7683716e-07)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_wykyb")
+
+[node name="RegainJumpArea" type="Area2D" parent="."]
+script = ExtResource("2_2ktk7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RegainJumpArea"]
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_e00m8")

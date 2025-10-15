@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dirlb3yrhfe4u"]
+
+[ext_resource type="Texture2D" uid="uid://da5kwda24il6" path="res://art/square.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://coy10o2fpia1f" path="res://code/Player.cs" id="1_g2els"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g2els"]
+friction = 0.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
+size = Vector2(20, 36)
+
+[node name="Player" type="RigidBody2D" groups=["player"]]
+physics_material_override = SubResource("PhysicsMaterial_g2els")
+gravity_scale = 1.5
+can_sleep = false
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 4
+linear_damp = 1.5
+script = ExtResource("1_g2els")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.29411766, 0.38431373, 1, 1)
+position = Vector2(3.5762787e-07, -1.0000005)
+scale = Vector2(1.5, 2.375)
+texture = ExtResource("1_3vyb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qhqgy")
