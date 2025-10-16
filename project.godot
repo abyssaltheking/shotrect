@@ -27,6 +27,7 @@ project/assembly_name="square fighting game"
 [global_group]
 
 player=""
+death=""
 
 [input]
 

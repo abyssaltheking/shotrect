@@ -5,6 +5,8 @@ public partial class Player : RigidBody2D
 {
     public float speed = 450;
     public float jumpPower = 450;
+    public int health;
+    public int maxHealth = 100;
 
     public int maxJumps = 2;
     public int jumps;
@@ -20,25 +22,24 @@ public partial class Player : RigidBody2D
     {
         sprite = GetNode<Sprite2D>("Sprite2D");
         jumps = maxJumps;
+        health = maxHealth;
 
+        BodyEntered += OnBodyEntered;
         base._Ready();
     }
 
     public override void _Process(double delta)
     {
+        if (health <= 0) {
+            GetTree().ChangeSceneToFile("res://scenes/game.tscn");
+        }
+
         if (Input.IsActionPressed("right")) {
             ApplyImpulse(new Vector2(speed * (float)delta, 0));
-            sprite.RotationDegrees = 10;
         } 
 
         if (Input.IsActionPressed("left")) {
             ApplyImpulse(new Vector2(-speed * (float)delta, 0));
-            sprite.RotationDegrees = -10;
-        }
-
-        if (!Input.IsActionPressed("right") && !Input.IsActionPressed("left")) {
-            // LinearDamp = 3f;
-            sprite.RotationDegrees = 0;
         }
 
         if (Input.IsActionJustPressed("jump") && jumps > 0) {
@@ -56,5 +57,9 @@ public partial class Player : RigidBody2D
         else GravityScale = 1f;
 
         base._Process(delta);
+    }
+
+    public void OnBodyEntered(Node body) {
+        if (body.IsInGroup("death")) health = 0;
     }
 }

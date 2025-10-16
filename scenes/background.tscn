@@ -1,0 +1,88 @@
+[gd_scene load_steps=2 format=3 uid="uid://diokxch5r8he5"]
+
+[ext_resource type="Texture2D" uid="uid://da5kwda24il6" path="res://art/square.png" id="1_bkp1e"]
+
+[node name="Background" type="Node2D"]
+
+[node name="Foreground" type="Node2D" parent="."]
+z_index = -3
+position = Vector2(-646, -318)
+
+[node name="Sprite2D" type="Sprite2D" parent="Foreground"]
+modulate = Color(0.40392157, 0.20392157, 0.09019608, 1)
+position = Vector2(-87.25964, 596.8967)
+rotation = -0.22508287
+scale = Vector2(27.171139, 22.321085)
+texture = ExtResource("1_bkp1e")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Foreground"]
+modulate = Color(0.3536008, 0.17531914, 0.07386614, 1)
+position = Vector2(495.7403, 602.8967)
+rotation = -0.36861303
+scale = Vector2(27.171139, 22.321085)
+texture = ExtResource("1_bkp1e")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Foreground"]
+modulate = Color(0.4732545, 0.24358201, 0.11317811, 1)
+position = Vector2(190.74031, 625.8968)
+rotation = -0.12694013
+scale = Vector2(27.171139, 22.321085)
+texture = ExtResource("1_bkp1e")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Foreground"]
+modulate = Color(0.40392157, 0.20392157, 0.09019608, 1)
+position = Vector2(879.4806, 617.7935)
+rotation = -0.22508287
+scale = Vector2(27.171139, 22.321085)
+texture = ExtResource("1_bkp1e")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Foreground"]
+modulate = Color(0.3536008, 0.17531914, 0.07386614, 1)
+position = Vector2(1462.4808, 623.7935)
+rotation = -0.36861303
+scale = Vector2(27.171139, 22.321085)
+texture = ExtResource("1_bkp1e")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Foreground"]
+modulate = Color(0.4732545, 0.24358201, 0.11317811, 1)
+position = Vector2(1157.4807, 646.7936)
+rotation = -0.12694013
+scale = Vector2(27.171139, 22.321085)
+texture = ExtResource("1_bkp1e")
+
+[node name="Midground" type="Node2D" parent="."]
+position = Vector2(-646, -318)
+
+[node name="Sprite2D7" type="Sprite2D" parent="Midground"]
+modulate = Color(0.23113063, 0.08223704, 0.019567978, 1)
+z_index = -4
+position = Vector2(128.5639, 518.6426)
+rotation = -0.92428064
+scale = Vector2(36.55377, 39.05745)
+texture = ExtResource("1_bkp1e")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Midground"]
+modulate = Color(0.18064114, 0.058016427, 0.012275892, 1)
+z_index = -4
+position = Vector2(598, 486)
+rotation = -0.3372872
+scale = Vector2(36.55377, 39.05745)
+texture = ExtResource("1_bkp1e")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Midground"]
+modulate = Color(0.23113063, 0.08223704, 0.019567978, 1)
+z_index = -4
+position = Vector2(1095.3044, 539.53937)
+rotation = -0.92428064
+scale = Vector2(36.56208, 39.057457)
+texture = ExtResource("1_bkp1e")
+
+[node name="Backestground" type="Node2D" parent="."]
+position = Vector2(-646, -318)
+
+[node name="Sprite2D10" type="Sprite2D" parent="Backestground"]
+modulate = Color(0.11413675, 0.02747106, 0.005494104, 1)
+z_index = -5
+position = Vector2(675.785, 345.77023)
+scale = Vector2(129.40189, 72.528725)
+texture = ExtResource("1_bkp1e")

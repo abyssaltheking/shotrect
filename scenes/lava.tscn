@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1vhnaaecncii"]
+
+[ext_resource type="Texture2D" uid="uid://da5kwda24il6" path="res://art/square.png" id="1_a5s42"]
+[ext_resource type="Script" uid="uid://cdconpg2uitk1" path="res://code/Lava.cs" id="1_dw3wf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wykyb"]
+friction = 0.2
+rough = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ktk7"]
+
+[node name="Lava" type="StaticBody2D" groups=["death"]]
+physics_material_override = SubResource("PhysicsMaterial_wykyb")
+script = ExtResource("1_dw3wf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2ktk7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.9999998, 0.56401795, 0.17624202, 1)
+z_index = -2
+position = Vector2(-4.7683716e-07, -4.7683716e-07)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_a5s42")

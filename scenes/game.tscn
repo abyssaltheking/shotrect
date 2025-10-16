@@ -1,13 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4c4afhm45bt7"]
+[gd_scene load_steps=5 format=3 uid="uid://d4c4afhm45bt7"]
 
 [ext_resource type="PackedScene" uid="uid://c6jjii2lvabbq" path="res://scenes/wall.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://dirlb3yrhfe4u" path="res://scenes/player.tscn" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://d1vhnaaecncii" path="res://scenes/lava.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://diokxch5r8he5" path="res://scenes/background.tscn" id="4_lbhrr"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Wall" parent="." instance=ExtResource("1_yqjtg")]
-position = Vector2(591, 682)
+modulate = Color(0.24696237, 0.10324407, 0.07109224, 1)
+position = Vector2(0, 320)
 scale = Vector2(50, 4.96)
 
 [node name="Player" parent="." instance=ExtResource("2_lnu2h")]
-position = Vector2(543, 393)
+
+[node name="Lava" parent="." instance=ExtResource("3_lnu2h")]
+position = Vector2(0, 340)
+scale = Vector2(169.71738, 3.670055)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Background" parent="." instance=ExtResource("4_lbhrr")]
+visible = true
