@@ -14,6 +14,7 @@ public partial class RegainJumpArea : Area2D
         if (body.IsInGroup("player")) {
             Player player = GetNode<Player>(GetPathTo(body));
             player.jumps = player.maxJumps;
+            player.landParticles.Emitting = true;
             player.smashing = false;
         }
     }

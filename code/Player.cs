@@ -14,13 +14,18 @@ public partial class Player : RigidBody2D
     private float downwardsGravity = 1.5f;
     private float smashGravity = 5f;
 
+    private float jumpCooldown;
+
     public bool smashing = false;
 
     private Sprite2D sprite;
+    public CpuParticles2D jumpParticles, landParticles;
 
     public override void _Ready()
     {
         sprite = GetNode<Sprite2D>("Sprite2D");
+        jumpParticles = GetNode<CpuParticles2D>("JumpParticles");
+        landParticles = GetNode<CpuParticles2D>("LandParticles");
         jumps = maxJumps;
         health = maxHealth;
 
@@ -30,6 +35,9 @@ public partial class Player : RigidBody2D
 
     public override void _Process(double delta)
     {
+        if (jumpCooldown > 0) jumpCooldown -= (float)delta;
+        if (jumpCooldown < 0) jumpCooldown = 0;
+
         if (health <= 0) {
             GetTree().ChangeSceneToFile("res://scenes/game.tscn");
         }
@@ -42,10 +50,12 @@ public partial class Player : RigidBody2D
             ApplyImpulse(new Vector2(-speed * (float)delta, 0));
         }
 
-        if (Input.IsActionJustPressed("jump") && jumps > 0) {
+        if (Input.IsActionJustPressed("jump") && jumps > 0 && jumpCooldown == 0) {
             ApplyImpulse(new Vector2(0, -jumpPower));
             LinearDamp = 1f;
             jumps--;
+            jumpParticles.Emitting = true;
+            jumpCooldown = 0.31f;
         }
 
         if (Input.IsActionJustPressed("smash") && Mathf.Abs(LinearVelocity.Y) > 0) {

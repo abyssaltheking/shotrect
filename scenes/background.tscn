@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://diokxch5r8he5"]
+[gd_scene load_steps=3 format=3 uid="uid://diokxch5r8he5"]
 
 [ext_resource type="Texture2D" uid="uid://da5kwda24il6" path="res://art/square.png" id="1_bkp1e"]
+
+[sub_resource type="Gradient" id="Gradient_bkp1e"]
+colors = PackedColorArray(0.23392546, 0.23392546, 0.23392543, 1, 0.646029, 0.646029, 0.646029, 1)
 
 [node name="Background" type="Node2D"]
 
@@ -86,3 +89,27 @@ z_index = -5
 position = Vector2(675.785, 345.77023)
 scale = Vector2(129.40189, 72.528725)
 texture = ExtResource("1_bkp1e")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, 505)
+amount = 15
+lifetime = 10.0
+preprocess = 5.0
+speed_scale = 0.5
+randomness = 1.0
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(640, 20)
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, -100)
+angular_velocity_max = 180.0
+radial_accel_min = -50.0
+radial_accel_max = 50.0
+damping_max = 1.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+color_initial_ramp = SubResource("Gradient_bkp1e")
+hue_variation_max = 1.0

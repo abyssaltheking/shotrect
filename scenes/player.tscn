@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dirlb3yrhfe4u"]
+[gd_scene load_steps=8 format=3 uid="uid://dirlb3yrhfe4u"]
 
 [ext_resource type="Texture2D" uid="uid://da5kwda24il6" path="res://art/square.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://coy10o2fpia1f" path="res://code/Player.cs" id="1_g2els"]
@@ -9,6 +9,14 @@ friction = 0.1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
 size = Vector2(20, 36)
+
+[sub_resource type="Curve" id="Curve_qhqgy"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -200), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_qhqgy"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Player" type="RigidBody2D" groups=["player"]]
 physics_material_override = SubResource("PhysicsMaterial_g2els")
@@ -35,3 +43,57 @@ energy = 0.25
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.20784314)
 texture = ExtResource("3_qhqgy")
+
+[node name="JumpParticles" type="CPUParticles2D" parent="."]
+position = Vector2(0, 18)
+scale = Vector2(1, 2)
+emitting = false
+amount = 10
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(10, 1)
+direction = Vector2(0, 0.5)
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+linear_accel_curve = SubResource("Curve_qhqgy")
+damping_min = 100.0
+damping_max = 100.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_max = 3.0
+
+[node name="LandParticles" type="CPUParticles2D" parent="."]
+position = Vector2(0, 18)
+scale = Vector2(1, 2)
+emitting = false
+amount = 15
+lifetime = 0.5
+one_shot = true
+speed_scale = 0.5
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(20, 1)
+direction = Vector2(10, -10)
+spread = 90.0
+gravity = Vector2(0, -980)
+initial_velocity_max = 150.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+linear_accel_curve = SubResource("Curve_qhqgy")
+damping_min = 100.0
+damping_max = 100.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_max = 3.0
+color = Color(0.5649617, 0.5649616, 0.5649616, 1)
+color_ramp = SubResource("Gradient_qhqgy")
