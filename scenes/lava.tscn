@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1vhnaaecncii"]
+[gd_scene load_steps=6 format=3 uid="uid://d1vhnaaecncii"]
 
 [ext_resource type="Texture2D" uid="uid://da5kwda24il6" path="res://art/square.png" id="1_a5s42"]
 [ext_resource type="Script" uid="uid://cdconpg2uitk1" path="res://code/Lava.cs" id="1_dw3wf"]
+[ext_resource type="Texture2D" uid="uid://b530kt7ivwj2q" path="res://art/light.webp" id="3_snnrc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wykyb"]
 friction = 0.2
@@ -22,3 +23,8 @@ z_index = -2
 position = Vector2(-4.7683716e-07, -4.7683716e-07)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("1_a5s42")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.20784314)
+texture = ExtResource("3_snnrc")
